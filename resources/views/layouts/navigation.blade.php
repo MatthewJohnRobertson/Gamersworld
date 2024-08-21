@@ -3,8 +3,8 @@
              <div class="col-12">
                  <nav class="main-nav">
                      <!-- ***** Logo Start ***** -->
-                     <a href="index.html" class="logo">
-                         <img src="assets/images/logo.png">
+                     <a href="{{ url('/') }}" class="logo">
+                         <img class="mainLogo" src="{{ asset('assets/images/logo.png') }}" alt="GamersWorld Logo">
                      </a>
                      <!-- ***** Logo End ***** -->
                      <!-- ***** Menu Start ***** -->
@@ -28,10 +28,11 @@
                                  <li><a href="#">Features Page 1</a></li>
                                  <li><a href="#">Features Page 2</a></li>
                                  <li><a href="#">Features Page 3</a></li>
-                                 <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
                              </ul>
                          </li>
                          <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                         <li><a href="{{ route('login') }}">Login</a></li>
+                         <li><a href="{{ route('register') }}">Register</a></li>
                      </ul>
                      <a class='menu-trigger'>
                          <span>Menu</span>
