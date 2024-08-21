@@ -31,8 +31,8 @@
                              </ul>
                          </li>
                          <li class="scroll-to-section"><a href="#explore">Explore</a></li>
-                         <li><a href="{{ route('login') }}">Login</a></li>
-                         <li><a href="{{ route('register') }}">Register</a></li>
+                         <li><a href=>Login</a></li>
+                         <li><a href=>Register</a></li>
                      </ul>
                      <a class='menu-trigger'>
                          <span>Menu</span>
