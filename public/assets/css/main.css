@@ -332,7 +332,7 @@ header
 
 .header-area .main-nav .nav {
     float: right;
-    margin-top: 21px;
+    margin-top: 90px;
     margin-right: 0px;
     background-color: transparent;
     -webkit-transition: all 0.3s ease 0s;
@@ -706,6 +706,10 @@ header
 banner
 --------------------------------------------- 
 */
+
+#main-container {
+    padding-top: 160px;
+}
 
 .main-banner {
     border-bottom: 3px dotted #eee;

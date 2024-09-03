@@ -9,34 +9,22 @@
                      <!-- ***** Logo End ***** -->
                      <!-- ***** Menu Start ***** -->
                      <ul class="nav">
-                         <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                         <li class="scroll-to-section"><a href="#men">Men's</a></li>
-                         <li class="scroll-to-section"><a href="#women">Women's</a></li>
-                         <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
+                         <li><a href="{{ url('/') }}" class="active">Home</a></li>
                          <li class="submenu">
-                             <a href="javascript:;">Pages</a>
-                             <ul>
-                                 <li><a href="about.html">About Us</a></li>
-                                 <li><a href="products.html">Products</a></li>
-                                 <li><a href="single-product.html">Single Product</a></li>
-                                 <li><a href="contact.html">Contact Us</a></li>
-                             </ul>
+                        
+                         <a href="products">Products</a>
+                        <ul>
+                         <li><a href="xbox-original">Xbox</a></li>
+                         <li><a href="ps2">Play Station 2</a></li>
                          </li>
-                         <li class="submenu">
-                             <a href="javascript:;">Features</a>
-                             <ul>
-                                 <li><a href="#">Features Page 1</a></li>
-                                 <li><a href="#">Features Page 2</a></li>
-                                 <li><a href="#">Features Page 3</a></li>
-                             </ul>
-                         </li>
-                         <li class="scroll-to-section"><a href="#explore">Explore</a></li>
-                         <li><a href=>Login</a></li>
-                         <li><a href=>Register</a></li>
+    </ul>
+                         <!-- <li><a href="single-product">Single Product</a></li> -->
+                         <li><a href="about">About Us</a></li>
+                         <li><a href="contact">Contact Us</a></li>
+                         <!-- <li><a href="account">Account</a></li> -->
+                         <li><a href="login">Login</a></li>
+                         <li><a href="register">Register</a></li>
                      </ul>
-                     <a class='menu-trigger'>
-                         <span>Menu</span>
-                     </a>
                      <!-- ***** Menu End ***** -->
                  </nav>
              </div>
