@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerLoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
@@ -32,16 +33,17 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/login', function () {
-    return view('customer/auth/login');
+Route::get('/customer/account', function () {
+    return view('/customer/account');
 });
+
+
+Route::post('/login', [CustomerLoginController::class, 'login']);
+Route::get('/login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
+Route::post('/logout', [CustomerLoginController::class, 'logout'])->name('logout');
 
 Route::get('/register', function () {
     return view('customer/auth/register');
-});
-
-Route::get('/account', function () {
-    return view('customer/account');
 });
 
 // Route::get('/products', function () {
@@ -52,6 +54,11 @@ Route::get('/account', function () {
 //     return view('single-product');
 // });
 
+Route::get('/customer/account/{customerId?}', [CustomerController::class, 'account'])
+    ->name('customer.account')
+    ->middleware('auth:customer');
+
+
 Route::resources([
     'customers' => CustomerController::class,
     'products' => ProductController::class,
@@ -59,4 +66,3 @@ Route::resources([
     'order-item' => OrderItemController::class,
     'review' => ReviewController::class,
 ]);
-

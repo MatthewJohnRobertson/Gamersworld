@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <!-- ***** Main Banner Area Start ***** -->
-<div class="page-heading" id="top main-container" >
+<div class="page-heading" id="top main-container">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -22,14 +22,14 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="left-images">
-                    <img src="{{asset('assets/images/original-xbox.jpg')}}" alt="Original xbox with controller">
+                    <img src="{{asset("$product->ImageUrl")}}" alt="Original xbox with controller">
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="right-content">
-                    
+
                     <h4>{{ $product->ProductName }}</h4>
-                    <span class="price">$75.00</span>
+                    <span class="price">{{ $product->ProductPrice }}</span>
                     <ul class="stars">
                         <li><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="total">
-                        <h4>Total: $210.00</h4>
+                        <h4>{{ $product->ProductPrice }}</h4>
                         <div class="main-border-button"><a href="#">Add To Cart</a></div>
                     </div>
                 </div>

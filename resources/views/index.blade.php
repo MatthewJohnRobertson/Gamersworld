@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- ***** Main Banner Area Start ***** -->
-<!-- <div class="main-banner" id="top">
+<div class="main-banner" id="top">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6">
@@ -107,7 +107,7 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- ***** Main Banner Area End ***** -->
 
 <!-- ***** Men Area Starts ***** -->
