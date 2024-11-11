@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerLoginController extends Controller {
+
     public function showLoginForm() {
         return view('customer.auth.login');
     }
@@ -36,8 +37,8 @@ class CustomerLoginController extends Controller {
 
         Auth::guard('customer')->login($customer);
 
-        // Log the customer ID for debugging
-        \Log::info("Customer logged in with ID: " . $customer->id);
+        // Set the session variable
+        session(['customer' => $customer]);
 
         // Redirect to the account page with the customer ID
         return redirect()->route('customer.account', ['customer' => $customer->id]);
@@ -47,6 +48,7 @@ class CustomerLoginController extends Controller {
         Auth::guard('customer')->logout();
 
         $request->session()->invalidate();
+
         $request->session()->regenerateToken();
 
         return redirect('/');

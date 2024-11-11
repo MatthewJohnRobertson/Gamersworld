@@ -33,13 +33,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/customer/account', function () {
-    return view('/customer/account');
-});
-
-
-Route::post('/login', [CustomerLoginController::class, 'login']);
 Route::get('/login', [CustomerLoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [CustomerLoginController::class, 'login'])->name('login.submit');
+
+Route::get('/logout', [CustomerLoginController::class, 'logout'])->name('logout');
 Route::post('/logout', [CustomerLoginController::class, 'logout'])->name('logout');
 
 Route::get('/register', function () {
@@ -57,6 +54,7 @@ Route::get('/register', function () {
 Route::get('/customer/account/{customerId?}', [CustomerController::class, 'account'])
     ->name('customer.account')
     ->middleware('auth:customer');
+
 
 
 Route::resources([

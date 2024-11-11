@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="page-heading about-page-heading" id="top main-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-content">
+                    <h2>Register with us today!</h2>
+                    <span>Awesomeness guaranteed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8 form-container p-5">

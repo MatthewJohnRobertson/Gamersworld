@@ -7,8 +7,8 @@
                     <img src="{{ asset('assets/images/logo.png') }}" alt="GamersWorld Logo">
                 </div>
                 <ul>
-                    <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
-                    <li><a href="#">hexashop@company.com</a></li>
+                    <li><a href="#">17 Crowfer St, Adelaide, South Australia 5000</a></li>
+                    <li><a href="#">gamersworld@mail.com</a></li>
                     <li><a href="#">010-020-0340</a></li>
                 </ul>
             </div>
@@ -16,9 +16,9 @@
         <div class="col-lg-3">
             <h4>Shopping &amp; Categories</h4>
             <ul>
-                <li><a href="#">Men’s Shopping</a></li>
-                <li><a href="#">Women’s Shopping</a></li>
-                <li><a href="#">Kid's Shopping</a></li>
+                <li><a href="#">Xbox orignal</a></li>
+                <li><a href="#">Playstation 2</a></li>
+                <li><a href="#">Retro games</a></li>
             </ul>
         </div>
         <div class="col-lg-3">
@@ -38,20 +38,6 @@
                 <li><a href="#">Shipping</a></li>
                 <li><a href="#">Tracking ID</a></li>
             </ul>
-        </div>
-        <div class="col-lg-12">
-            <div class="under-footer">
-                <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
-
-                    <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
-                </p>
-                <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>

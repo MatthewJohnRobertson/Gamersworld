@@ -42,7 +42,7 @@ class CustomerController extends Controller {
 
         $customer = Customer::create($validatedData);
 
-        return redirect()->route('customers.show', ['customer' => $customer])
+        return redirect()->route('customer.account', ['customer' => $customer->id])
             ->with('success', 'Customer registered successfully');
     }
 
@@ -51,23 +51,21 @@ class CustomerController extends Controller {
         if (!$customer) {
             abort(404);
         }
-        return view('customer', ['customer' => $customer]);
+        return view('customer.account', ['customer' => $customer]);
     }
 
     public function account(Request $request, $customerId = null) {
         $authCustomer = Auth::guard('customer')->user();
 
         if (!$authCustomer) {
-            \Log::warning("No authenticated customer found");
             return redirect()->route('login');
         }
 
         if ($customerId && $authCustomer->id != $customerId) {
-            \Log::warning("Unauthorized access attempt. Auth ID: {$authCustomer->id}, Requested ID: $customerId");
             abort(403, 'Unauthorized action.');
         }
 
-        \Log::info("Authenticated customer ID: " . $authCustomer->id);
+
         return view('customer.account', ['customer' => $authCustomer]);
     }
 }

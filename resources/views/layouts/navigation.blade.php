@@ -22,9 +22,21 @@
                      <li><a href="{{url('/about')}}">About Us</a>
                      </li>
                      <li><a href="{{url('/contact')}}">Contact Us</a></li>
-                     <li><a href="{{url('/customer/account')}}">Account</a></li>
-                     <li><a href="{{url('/login')}}">Login</a></li>
-                     <li><a href="{{url('/register')}}">Register</a></li>
+
+                     @if(Auth::guard('customer')->check())
+                     <li>
+                         <a href="{{ url('/customer/account') }}">Account</a>
+                     </li>
+                     <li>
+                         <form method="POST" action="{{ route('logout') }}">
+                             @csrf
+                             <a href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                         </form>
+                     </li>
+                     @else
+                     <li><a href="{{ route('login') }}">Login</a></li>
+                     <li><a href="{{ url('register') }}">Register</a></li>
+                     @endif
                      </ul>
                      <!-- ***** Menu End ***** -->
                  </nav>

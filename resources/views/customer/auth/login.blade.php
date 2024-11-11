@@ -1,4 +1,16 @@
 @extends('layouts.app')
+<div class="page-heading about-page-heading" id="top main-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-content">
+                    <h2>Join us today!</h2>
+                    <span>Awesomeness guaranteed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container my-5">
     <div class="row justify-content-center">
@@ -8,7 +20,7 @@
                 <h2 class="mb-3">Customer Login</h2>
                 <p class="text-muted">Welcome back! Please login to your account.</p>
             </div>
-            <form action="{{ route('login') }}" method="POST">
+            <form method="POST" action="{{ route('login.submit') }}">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
