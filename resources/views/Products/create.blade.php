@@ -53,6 +53,14 @@
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label for="PicUrl" class="form-label">Product Url</label>
+            <input type="text" step="0.01" class="form-control @error('PicUrl') is-invalid @enderror" id='PicUrl' name='PicUrl' value="{{ old('PicUrl') }}" required>
+            @error('PicUrl')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
         <button type="submit" class="btn btn-primary">Create Product</button>
     </form>
 </div>

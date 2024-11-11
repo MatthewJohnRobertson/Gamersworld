@@ -716,6 +716,11 @@ banner
     border-bottom: 3px dotted #eee;
     padding-top: 160px;
     padding-bottom: 30px;
+    background-color: #000000;
+}
+
+.bannerImage {
+    align-items: center;
 }
 
 .main-banner .left-content .thumb img {
