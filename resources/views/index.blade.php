@@ -13,123 +13,6 @@
 </div>
 <!-- ***** Main Banner Area End ***** -->
 
-<!-- ***** Men Area Starts ***** -->
-<section class="section" id="men">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="section-heading">
-                    <h2>Men's Latest</h2>
-                    <span>Details to details is what makes Hexashop different from the other themes.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="men-item-carousel">
-                    <div class="owl-men-item owl-carousel">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/men-01.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Classic Spring</h4>
-                                <span>$120.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/men-02.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Air Force 1 X</h4>
-                                <span>$90.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/men-03.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Love Nana ‘20</h4>
-                                <span>$150.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <img src="assets/images/men-01.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Classic Spring</h4>
-                                <span>$120.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ***** Men Area Ends ***** -->
-
 
 <!-- ***** Explore Area Starts ***** -->
 <section class="section" id="explore">
@@ -140,7 +23,7 @@
                     <h2>Explore Our Products</h2>
                     <p>Come check out our stock of refurbished retro consoles. Like the original Xbox and Playstion 2 we carefully select, clean and repair all our consoles in shop to ensure the utmost quality in all are consoles as well as resurfacing all game discs. If you have any problems with a purchased item we also have 180 days refund policy to ensure you always get a good deal!</p>
                     <div class="main-border-button">
-                        <a href="products.html">Discover More</a>
+                        <a href="products">Discover More</a>
                     </div>
                 </div>
             </div>
@@ -230,23 +113,6 @@
     </div>
 </div>
 <!-- ***** Subscribe Area Ends ***** -->
-
-
-<script>
-    $(function() {
-        var selectedClass = "";
-        $("p").click(function() {
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-            $("#portfolio div").not("." + selectedClass).fadeOut();
-            setTimeout(function() {
-                $("." + selectedClass).fadeIn();
-                $("#portfolio").fadeTo(50, 1);
-            }, 500);
-
-        });
-    });
-</script>
 
 
 @endsection

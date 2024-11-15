@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class Customer extends Authenticatable {
     use HasFactory, Notifiable;
 
-    protected $primaryKey = 'Customer_id';
+    protected $primaryKey = 'id';
     public $incrementing = true;
 
     protected $fillable = [

@@ -39,15 +39,14 @@ class ProductController extends Controller {
 
         $product = Product::create($validated);
 
-        return redirect()->route('products.show', $product->Product_id);
+        return redirect()->route('products.show', $product->id);
     }
 
+    /**
+     * View a single product 
+     */
     public function show($id) {
-        $product = Product::find($id);
-        if (!$product) {
-            abort(404);
-        }
-
-        return view('products.show', ['product' => $product]);
+        $product = Product::findOrFail($id);
+        return view('products.show',  compact('product'));
     }
 }

@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/lightbox.css') }}">
     @yield('styles')
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -62,7 +60,7 @@
 
     <!-- Global Init -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
-
+    <script src="{{ asset('assets/js/cart.js') }}"></script>
     @yield('scripts')
 </body>
 
