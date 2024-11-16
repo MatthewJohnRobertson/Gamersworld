@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class CartController extends Controller {
@@ -161,29 +162,85 @@ class CartController extends Controller {
     }
 
     public function paymentSuccess(Request $request) {
-        $provider = new PayPalClient;
-        $provider->setApiCredentials(config('paypal'));
+        Log::info('Payment success method started');
 
-        // Get PayPal order ID from session
-        $paypalOrderId = session('paypal_order_id');
+        try {
+            // Initialize PayPal
+            $provider = new PayPalClient;
 
-        // Capture the PayPal order
-        $response = $provider->capturePaymentOrder($paypalOrderId);
+            // Set API credentials from config
+            $config = config('paypal');
+            $provider->setApiCredentials($config);
 
-        if (isset($response['status']) && $response['status'] === 'COMPLETED') {
-            // Update order in database
-            $order = Order::find(session('laravel_order_id'));
-            $order->status = 'completed';
-            $order->save();
+            // Get access token first
+            $token = $provider->getAccessToken();
+            Log::info('Access token obtained', ['token_exists' => !empty($token)]);
 
-            // Clear cart and sessions
-            session()->forget(['cart', 'paypal_order_id', 'laravel_order_id']);
+            // Get PayPal order ID from session
+            $paypalOrderId = session('paypal_order_id');
+            Log::info('Processing PayPal Order:', ['order_id' => $paypalOrderId]);
 
-            return redirect()->route('orders.show', $order->id)
-                ->with('success', 'Payment completed successfully!');
+            if (empty($paypalOrderId)) {
+                throw new \Exception('PayPal Order ID not found in session');
+            }
+
+            try {
+                // Create a new instance with fresh token
+                $provider = new PayPalClient;
+                $provider->setApiCredentials($config);
+                $provider->getAccessToken();
+
+                // Verify and capture payment
+                $response = $provider->capturePaymentOrder($paypalOrderId);
+                Log::info('Capture response received:', ['response' => $response]);
+
+                if (isset($response['status']) && $response['status'] === 'COMPLETED') {
+                    // Update order in database
+                    $order = Order::with('orderItems.product')->find(session('laravel_order_id'));
+
+                    if (!$order) {
+                        throw new \Exception('Order not found in database');
+                    }
+
+                    $order->status = 'completed';
+                    $order->save();
+
+                    // Get the logged in customer
+                    $customer = auth('customer')->user();
+                    Log::info('Customer found:', ['customer_id' => $customer->id]);
+
+                    // Clear cart and sessions
+                    session()->forget(['cart', 'paypal_order_id', 'laravel_order_id']);
+
+                    // Store order details in flash session
+                    session()->flash('successOrder', $order);
+
+                    // Redirect to account page
+                    return redirect("/customer/account/{$customer->id}")
+                        ->with('success', 'Payment completed successfully! Your order details are below.');
+                } else {
+                    Log::error('Payment status not completed', [
+                        'status' => $response['status'] ?? 'unknown',
+                        'details' => $response
+                    ]);
+                    throw new \Exception('Payment was not completed');
+                }
+            } catch (\Exception $e) {
+                Log::error('PayPal API Error:', [
+                    'message' => $e->getMessage(),
+                    'paypal_order_id' => $paypalOrderId
+                ]);
+                throw $e;
+            }
+        } catch (\Exception $e) {
+            Log::error('Payment processing error:', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return redirect('/cart')
+                ->with('error', 'An error occurred processing your payment. Please try again.');
         }
-
-        return redirect()->route('cart.index')->with('error', 'Payment failed.');
     }
 
     public function paymentCancel() {

@@ -8,7 +8,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 
 
 // Route::get('/welcome', function () {
@@ -78,5 +80,14 @@ Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add')
 
 
 Route::get('paypal/payment', [CartController::class, 'payment'])->name('paypal.payment');
-Route::get('paypal/payment/success', [CartController::class, 'paymentSuccess'])->name('paypal.payment.success');
+Route::get('/paypal/payment/success', [CartController::class, 'paymentSuccess'])->name('paypal.payment.success');
 Route::get('paypal/payment/cancel', [CartController::class, 'paymentCancel'])->name('paypal.payment.cancel');
+Route::post('paypal/notify', function () {
+    return response()->json(['status' => 'success']);
+})->name('paypal.notify');
+
+Route::get('search-products', [App\Http\Controllers\SearchController::class, 'search'])->name('search.products');
+
+Route::middleware(['auth:customer'])->group(function () {
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+});

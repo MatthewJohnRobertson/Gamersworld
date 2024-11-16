@@ -61,6 +61,7 @@
     <!-- Global Init -->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/cart.js') }}"></script>
+    <script src="{{ asset('assets/js/search.js') }}"></script>
     @yield('scripts')
 </body>
 

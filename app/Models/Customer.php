@@ -38,4 +38,8 @@ class Customer extends Authenticatable {
     public function getEmailForPasswordReset() {
         return $this->Email;
     }
+
+    public function orders() {
+        return $this->hasMany(Order::class, 'customer_id'); // Verify the foreign key name
+    }
 }

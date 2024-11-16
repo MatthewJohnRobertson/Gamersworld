@@ -46,12 +46,11 @@ class CustomerController extends Controller {
             ->with('success', 'Customer registered successfully');
     }
 
-    public function show($id) {
-        $customer = Customer::find($id);
-        if (!$customer) {
-            abort(404);
-        }
-        return view('customer.account', ['customer' => $customer]);
+    public function show() {
+        $customer = auth('customer')->user()->load(['orders' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }, 'orders.orderItems', 'orders.orderItems.product']);
+        return view('customer.account', compact('customer'));
     }
 
     public function account(Request $request, $customerId = null) {

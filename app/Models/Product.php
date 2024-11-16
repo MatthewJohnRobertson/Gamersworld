@@ -20,4 +20,8 @@ class Product extends Model {
         'ProductPrice',
         'PicUrl'
     ];
+
+    public function reviews() {
+        return $this->hasMany(Review::class, 'product_id')->orderBy('created_at', 'desc');
+    }
 }

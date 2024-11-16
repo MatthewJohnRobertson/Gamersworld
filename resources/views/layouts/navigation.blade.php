@@ -6,18 +6,21 @@
                 <div class="left-group">
                     <a href="{{ url('/') }}" class="logo">
                         <img src="{{ asset('assets/images/logo.png') }}" alt="GamersWorld" height="40">
-                        <span class="text-white">GamersWorld</span>
                     </a>
 
-                    <form action="" method="GET" class="search-form">
+                    <form class="search-form" onsubmit="return false;">
                         <div class="search-group">
                             <input type="text"
-                                name="query"
+                                id="searchBar"
+                                name="searchBar"
                                 placeholder="Search for products..."
-                                class="search-input">
-                            <button type="submit" class="search-btn">Search</button>
+                                class="search-input"
+                                autocomplete="off">
+                            <button type="button" class="search-btn">Search</button>
+                            <div id="searchResults" class="search-results"></div>
                         </div>
                     </form>
+
                 </div>
 
                 <!-- Navigation Links -->
@@ -113,6 +116,43 @@
         border: 1px solid rgba(255, 255, 255, 0.2);
         color: #fff;
         cursor: pointer;
+    }
+
+    .search-container {
+        position: relative;
+    }
+
+    .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+    }
+
+    .search-results.active {
+        display: block;
+    }
+
+    .search-result-item {
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+        color: #333;
+    }
+
+    .search-result-item:hover {
+        background-color: #f5f5f5;
+    }
+
+    .search-result-item:last-child {
+        border-bottom: none;
     }
 
     /* Media query adjustments */
